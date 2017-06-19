@@ -9,46 +9,24 @@
     <div class="nav">
         <%- include('navbar') %>
     </div>
-
     <div class="container">
-
-        <div class="jumbotron">
-            <strong><h1>Welcome to My Blog</h1></strong>
-            <p class="lead">Check out the articles below!</p>
-        </div>
-
+      <div class="jumbotron">
+        <strong><h1>Welcome to My Blog</h1></strong>
+        <p class="lead">Check out the articles below!</p>
+      </div>
         <div class="row">
-            <div class="col-lg-12">
-                <div class="list-group">
-                  <!-- loop over blog posts and render them -->
-                  <% result.forEach(function(post) { %>
-                    <a href="/post/<%=post.postid %>" class="list-group-item">
-                      <h4 class="list-group-item-heading"><%= post.title %></h4>
-                      <p class="list-group-item-text"><%= post.date.toDateString() %></p>
-                    </a>
-                  <% }) %>
-                </div>
+          <div class="col-lg-12">
+            <div class="list-group">
+          <!-- loop over blog posts and render them -->
+            <% result.forEach(function(post) { %>
+              <a href="/post/<%=post.postid %>" class="list-group-item">
+                <h4 class="list-group-item-heading"><%= post.title %></h4>
+                <p class="list-group-item-text"><%= post.date.toDateString() %></p>
+              </a>
+                <% }) %>
+              </div>
             </div>
         </div>
   </body>
-  <!-- <nav aria-label="Page navigation example">
-<ul class="pagination justify-content-center">
-<li class="page-item">
-<a class="page-link" href="#" aria-label="Previous">
-  <span aria-hidden="true">&laquo;</span>
-  <span class="sr-only">Previous</span>
-</a>
-</li>
-<li class="page-item"><a class="page-link" href="#">1</a></li>
-<li class="page-item"><a class="page-link" href="#">2</a></li>
-<li class="page-item"><a class="page-link" href="#">3</a></li>
-<li class="page-item">
-<a class="page-link" href="#" aria-label="Next">
-  <span aria-hidden="true">&raquo;</span>
-  <span class="sr-only">Next</span>
-</a>
-</li>
-</ul>
-</nav> -->
 </div>
 </html>

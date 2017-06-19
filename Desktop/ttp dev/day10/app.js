@@ -26,11 +26,10 @@ app.get('/home',function(req,res){
     if(!!error){
       console.log("Error in the query");
     }else {
-      console.log("Successful query");
+      // console.log("Successful query");
     }
       res.render('home',{result:result.reverse()});
   });
-
 })
 app.get('/post/:postid',function (req,res) {
   var id = req.params.postid;
@@ -52,10 +51,6 @@ app.get('/projects', function (req, res) {
   res.render('entry');
 });
 app.post("/home",function(req,res){
-    console.log("here!!!");
-  // var title = req.body.title;
-  // var article = req.body.article;
-  // var newPost = {title:title, article:article}
 connection.query("INSERT INTO posts (title,body) values ('"+req.body.title+"','"+req.body.article+"')", function(error,result){
   if (!!error) {
   console.log(error);
@@ -65,8 +60,4 @@ connection.query("INSERT INTO posts (title,body) values ('"+req.body.title+"','"
 })
 
 })
-
-
-
-
 app.listen(3000);
