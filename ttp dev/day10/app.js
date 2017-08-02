@@ -8,6 +8,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.use( express.static( "public" ) );
 
+// connect to database
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : process.env.DB_USER,
@@ -21,6 +22,7 @@ connection.connect(function(error){
     console.log("Connected");
   }
 });
+// renders homepage and retrives / displays all the post in the databse
 app.get('/home',function(req,res){
   connection.query("SELECT * from posts", function(error,result){
     if(!!error){
@@ -31,6 +33,7 @@ app.get('/home',function(req,res){
       res.render('home',{result:result.reverse()});
   });
 })
+ // displays a specfic post and retrives it from the database based on the post id
 app.get('/post/:postid',function (req,res) {
   var id = req.params.postid;
     connection.query("SELECT * from posts where postid=?",id, function(error,result){

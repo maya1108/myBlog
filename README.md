@@ -5,3 +5,11 @@ npm express,ejs
 node.js
 ## Author
 Maya G.
+## Database Specifications
+The database is used to store  all the articles in the blog in a table I named posts.
+ database: mySQL
+ posts table includes the following variables:
+ - postid: int , auto increments , not null
+ - title: varchar(244) ,not null
+  - body: blob , not null
+  - date: datetime , set to default  current timestamp
